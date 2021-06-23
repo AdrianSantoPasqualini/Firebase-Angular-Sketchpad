@@ -13,7 +13,7 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<User>;
+  user$: Observable<User | null | undefined>;
 
   constructor(
       private afAuth: AngularFireAuth,
@@ -37,13 +37,13 @@ export class AuthService {
     return this.updateUserData(credential.user);
   }
 
-  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+  private updateUserData({uid, email, displayName, photoURL }: any) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
     const data = { 
-      uid: user.uid, 
-      email: user.email, 
-      displayName: user.displayName, 
-      photoURL: user.photoURL
+      uid,
+      email, 
+      displayName, 
+      photoURL
     }
     return userRef.set(data, { merge: true })
   }
