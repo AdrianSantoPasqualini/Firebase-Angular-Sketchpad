@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: linear-gradient(0.25turn, #ff5edf, #04c8de);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tsparticles {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

@@ -8,6 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { NgParticlesModule } from "ng-particles";
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     }),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    NgParticlesModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
