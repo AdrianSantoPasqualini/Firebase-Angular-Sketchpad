@@ -8,13 +8,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { environment } from '../environments/environment';
-
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyB0RkPvDtmIRFtBJXBw0l4FlSssOIyvOUw",
+      authDomain: "fir-angular-sketchpad.firebaseapp.com",
+      projectId: "fir-angular-sketchpad",
+      storageBucket: "fir-angular-sketchpad.appspot.com",
+      messagingSenderId: "362288336042",
+      appId: "1:362288336042:web:d3be6bb9938829079154d3",
+      measurementId: "G-5Q1KCKXQZX"
+    }),
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
