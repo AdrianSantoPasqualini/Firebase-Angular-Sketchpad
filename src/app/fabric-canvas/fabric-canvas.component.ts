@@ -49,6 +49,7 @@ export class FabricCanvasComponent implements OnInit {
   }
 
   clearCanvas() {
+    // Clear the canvas and then synch
     this.canvas.clear();
     this.synchCanvas();
   }

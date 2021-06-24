@@ -4,6 +4,8 @@ This is an Angular web app that uses Firebase for user authentication.
 Users may login with their Google accounts and draw whatever they like on a blank canvas.
 The canvas is automatically saved as the user draws, and their most recently saved canvas will be preloaded for them the next time they log in.
 
+The app is hosted on Firebase at: https://fir-angular-sketchpad.web.app/
+
 ## Usage
 ### Development server
 
