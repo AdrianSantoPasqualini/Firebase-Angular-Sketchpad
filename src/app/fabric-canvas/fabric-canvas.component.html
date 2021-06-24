@@ -3,7 +3,7 @@
     <p>Change Stroke Color:</p>
     <input [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="updateStrokeColor($event)"/>
   </div>
-  <div id="canvasContainer">
+  <div id="canvasContainer" (mouseup)="synchCanvas()">
     <canvas width="800" height="750" style="border: 1px solid white;" id="fabricSurface"></canvas>
   </div>
 </div>
