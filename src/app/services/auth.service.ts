@@ -19,7 +19,8 @@ export class AuthService {
       private afAuth: AngularFireAuth,
       private afs: AngularFirestore,
       private router: Router
-  ) { 
+  ) {
+    // Load user from authState
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -32,12 +33,14 @@ export class AuthService {
   }
 
   async googleSignin() {
+    // Popup Google login window
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     return this.updateUserData(credential.user);
   }
 
   private updateUserData({uid, email, displayName, photoURL }: any) {
+    // Store user login info in FireStore
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
     const data = { 
       uid,
@@ -49,8 +52,7 @@ export class AuthService {
   }
 
   async signOut() {
+    // Sign out user
     await this.afAuth.signOut();
-    this.router.navigate(['/']);
   }
-
 }

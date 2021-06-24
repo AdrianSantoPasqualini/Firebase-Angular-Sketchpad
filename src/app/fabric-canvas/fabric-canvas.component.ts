@@ -17,7 +17,7 @@ export class FabricCanvasComponent implements OnInit {
   synching: boolean;
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
-    // Initialize Canvas
+    // Initialize canvas
     this.canvas = new fabric.Canvas('fabricSurface', {
       isDrawingMode: true,
     });
@@ -26,13 +26,13 @@ export class FabricCanvasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Create Fabric Canvas
+    // Create fabric canvas
     this.canvas = new fabric.Canvas('fabricSurface', {
       isDrawingMode: true,
     });
     this.canvas.freeDrawingBrush.color = this.color;
 
-    // Pull Last Saved Canvas For User
+    // Pull last saved canvas for user
     const currUser = firebase.auth().currentUser;
     if (!currUser) {
       return;
@@ -65,7 +65,7 @@ export class FabricCanvasComponent implements OnInit {
         }
         userRef.update(data)
         this.synching = false;
-      }, 500);
+      }, 100);
     }
   }
 
