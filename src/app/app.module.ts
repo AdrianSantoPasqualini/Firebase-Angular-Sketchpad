@@ -12,6 +12,7 @@ import { NgParticlesModule } from "ng-particles";
 import { ColorPickerModule } from 'ngx-color-picker';
 
 import { FabricCanvasComponent } from './fabric-canvas/fabric-canvas.component';
+import { ParticlesComponent } from './particles/particles.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import { FabricCanvasComponent } from './fabric-canvas/fabric-canvas.component';
     NgParticlesModule,
     ColorPickerModule,
   ],
-  declarations: [AppComponent, FabricCanvasComponent],
+  declarations: [AppComponent, FabricCanvasComponent, ParticlesComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -5,15 +5,6 @@ body {
   justify-content: center;
 }
 
-#tsparticles {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 .button {
   display: inline-block;
   padding: 0.75em 1.5em;
