@@ -48,6 +48,11 @@ export class FabricCanvasComponent implements OnInit {
     });
   }
 
+  clearCanvas() {
+    this.canvas.clear();
+    this.synchCanvas();
+  }
+
   synchCanvas() {
     // Buffer cavnas synchs to minimize FireStore update spam
     if (!this.synching) {

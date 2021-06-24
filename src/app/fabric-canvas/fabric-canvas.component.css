@@ -2,8 +2,15 @@
   background-color: white;
 }
 
+#colorPicker {
+  cursor: pointer;
+}
+
 #canvasControls {
   padding: 0.5rem;
   font-family: 'Arial';
-  color: white;  
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

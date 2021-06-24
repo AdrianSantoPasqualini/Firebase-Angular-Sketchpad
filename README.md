@@ -5,9 +5,6 @@ Users may login with their Google accounts and draw whatever they like on a blan
 The canvas is automatically saved as the user draws, and their most recently saved canvas will be preloaded for them the next time they log in.
 
 ## Usage
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
-
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -18,4 +15,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### Deploy
 
-Run `firebase deploy` to deploy the most recent build
+Run `firebase deploy` to deploy the most recent build.

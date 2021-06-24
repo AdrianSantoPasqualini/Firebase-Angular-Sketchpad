@@ -2,7 +2,10 @@
   <canvas width="800" height="675" style="border: 1px solid white;" id="fabricSurface"></canvas>
 </div>
 <div id="canvasControls">
-  <p>Change Stroke Color:</p>
-  <input [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="updateStrokeColor($event)"/>
+  <div>
+    <p>Change Stroke Color:</p>
+    <input id="colorPicker" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="updateStrokeColor($event)"/>
+  </div>
+  <button class="button" (click)="clearCanvas()">Clear Canvas</button>
 </div>
 
