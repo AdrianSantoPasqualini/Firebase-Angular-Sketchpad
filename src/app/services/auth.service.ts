@@ -28,7 +28,7 @@ export class AuthService {
           return of(null);
         }
       })
-    );
+    );  
   }
 
   async googleSignin() {

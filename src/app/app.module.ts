@@ -9,6 +9,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { NgParticlesModule } from "ng-particles";
+import { ColorPickerModule } from 'ngx-color-picker';
+
+import { FabricCanvasComponent } from './fabric-canvas/fabric-canvas.component';
 
 @NgModule({
   imports: [
@@ -26,8 +29,9 @@ import { NgParticlesModule } from "ng-particles";
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgParticlesModule,
+    ColorPickerModule,
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, FabricCanvasComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

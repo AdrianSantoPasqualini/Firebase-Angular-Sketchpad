@@ -11,7 +11,7 @@
   opacity: 0.75;
 }
 
-#loginButton {
+.button {
   display: inline-block;
   padding: 0.75em 1.5em;
   border: 0.1em solid white;
@@ -27,6 +27,14 @@
   cursor: pointer;
   transition: all 0.2s;
 }
-#loginButton:hover {
+
+.button:hover {
   transform: scale(1.1);
+}
+
+#signoutButton {
+  position: fixed;
+  /* float: left; */
+  top: 1em;
+  right: 1em;
 }

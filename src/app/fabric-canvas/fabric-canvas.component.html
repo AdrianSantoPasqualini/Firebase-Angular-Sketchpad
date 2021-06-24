@@ -1,0 +1,10 @@
+<div id="mainContainer">
+  <div id="canvasControls">
+    <p>Change Stroke Color:</p>
+    <input [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="updateStrokeColor($event)"/>
+  </div>
+  <div id="canvasContainer">
+    <canvas width="800" height="750" style="border: 1px solid white;" id="fabricSurface"></canvas>
+  </div>
+</div>
+

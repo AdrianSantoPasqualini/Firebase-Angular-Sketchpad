@@ -1,17 +1,16 @@
 <div *ngIf="auth.user$ | async as user; else login">
-  {{ user | json }}
-  <hr>
-  <button class="button" (click)="auth.signOut()">Sign Out</button>
+  <app-fabric-canvas></app-fabric-canvas>
+  <button class="button" id="signoutButton" (click)="auth.signOut()">Sign Out</button>
 </div>
 
 <ng-template #login>
   <div id="loginContainer">
-    <button id="loginButton" (click)="auth.googleSignin()">Login With Google</button>
+    <button class="button" (click)="auth.googleSignin()">Login With Google</button>
   </div>
 </ng-template>
 
 <ng-particles [id]="'tsparticles'" [options]='{
-  "fps_limit": 60,
+  "fps_limit": 30,
   "interactivity":{
     "detectsOn": "window",
     "events": {
@@ -42,7 +41,7 @@
         "enable": true,
         "area": 800
       },
-      "value": 200
+      "value": 150
     },
     "opacity": {
       "value": 0.5
