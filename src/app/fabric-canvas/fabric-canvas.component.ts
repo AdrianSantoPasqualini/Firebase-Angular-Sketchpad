@@ -32,6 +32,11 @@ export class FabricCanvasComponent implements OnInit {
     });
     this.canvas.freeDrawingBrush.color = this.color;
 
+    // Synch canvas when an object is added
+    this.canvas.on('object:added', () => {
+      this.synchCanvas();
+    });
+
     // Pull last saved canvas for user
     const currUser = firebase.auth().currentUser;
     if (!currUser) {
