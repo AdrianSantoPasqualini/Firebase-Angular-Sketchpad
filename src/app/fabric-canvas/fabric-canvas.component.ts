@@ -14,36 +14,62 @@ import { User } from '../services/user.model';
 export class FabricCanvasComponent implements OnInit {
   canvas: fabric.Canvas;
   color: string;
+  synching: boolean;
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
+    // Initialize Canvas
     this.canvas = new fabric.Canvas('fabricSurface', {
       isDrawingMode: true,
     });
     this.color = "red";
+    this.synching  = false;
   }
 
   ngOnInit(): void {
+    // Create Fabric Canvas
     this.canvas = new fabric.Canvas('fabricSurface', {
       isDrawingMode: true,
     });
     this.canvas.freeDrawingBrush.color = this.color;
+
+    // Pull Last Saved Canvas For User
+    const currUser = firebase.auth().currentUser;
+    if (!currUser) {
+      return;
+    }
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${currUser.uid}`);
+    userRef.ref.get().then(user => {
+      const userDoc = user.data();
+      if (userDoc) {
+        this.canvas.loadFromJSON(userDoc.canvasJSON, () => {
+          this.canvas.renderAll();
+        });
+      }
+    });
   }
 
   synchCanvas() {
-    const currUser = firebase.auth().currentUser;
-    const uid = currUser ? currUser.uid : null;
-    if (!uid) {
-      return;
+    // Buffer cavnas synchs to minimize FireStore update spam
+    if (!this.synching) {
+      setTimeout(() => {
+        // Sync the canvas json to the current user in FireStore
+        this.synching = true;
+        const currUser = firebase.auth().currentUser;
+        const uid = currUser ? currUser.uid : null;
+        if (!uid) {
+          return;
+        }
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
+        const data = {
+          canvasJSON: JSON.stringify(this.canvas.toJSON()),
+        }
+        userRef.update(data)
+        this.synching = false;
+      }, 500);
     }
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
-    const data = {
-      canvasJSON: JSON.stringify(this.canvas.toJSON()),
-    }
-    return userRef.update(data)
   }
 
   updateStrokeColor(event: any): void {
     this.canvas.freeDrawingBrush.color = event;
   }
-
 }
